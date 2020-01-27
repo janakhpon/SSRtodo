@@ -1,18 +1,18 @@
 {
-  "name": "ssrtodo",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "nextjs",
+  "version": "4.0.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "latest",
+    "clsx": "latest",
+    "next": "latest",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start"
-  },
-  "repository": "https://github.com/janakhpon/SSRtodo.git",
-  "author": "janakhpon <jnovaxer@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "next": "^9.2.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
   }
 }

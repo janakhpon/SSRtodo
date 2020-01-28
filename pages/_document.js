@@ -9,11 +9,18 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           {/* PWA primary color */}
+          <title>Todo</title>
           <meta name="theme-color" content={theme.palette.primary.main} />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+            key="viewport"
+          />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
+          <link rel="shortcut icon" href="https://avatars1.githubusercontent.com/u/46496244?s=400&u=9611ffb5e3cb7039ee5c6bdee55ee12668d53a7c&v=4" />
         </Head>
         <body>
           <Main />

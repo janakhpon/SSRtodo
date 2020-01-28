@@ -65,18 +65,6 @@ align-self: center;
 
 
 const Layout = (props) => {
-    const id = localStorage.getItem('id')
-    const name = localStorage.getItem('name')
-    const numoftask = localStorage.getItem('num')
-
-
-    const me = {
-        id,
-        name,
-        numoftask
-    }
-
-
 
     return (
         <>

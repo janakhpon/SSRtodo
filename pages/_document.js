@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           {/* PWA primary color */}
-          <title>Todo</title>
+          {/* <title>Todo</title> */}
           <meta name="theme-color" content={theme.palette.primary.main} />
           <meta
             name="viewport"

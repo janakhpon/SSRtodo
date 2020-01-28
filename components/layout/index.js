@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   layout: {
-    marginTop: theme.spacing(4),
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -14,7 +14,7 @@ const Layout = (props) => {
   return (
     <>
       <PageNavbar />
-      <Container maxWidth="md" className={classes.layout}>
+        <Container maxWidth="md" className={classes.layout}>
         {props.children}
       </Container>
     </>

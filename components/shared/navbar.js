@@ -14,6 +14,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import MuiLink from '@material-ui/core/Link';
+import ProTip from '../../src/ProTip';
+import Link from '../../src/Link';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -27,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function  PageNavbar() {
+export default function PageNavbar() {
     const classes = useStyles();
     const [state, setState] = React.useState({
         top: false,
@@ -105,9 +108,6 @@ export default function  PageNavbar() {
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer('left', true)}>
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" className={classes.title}>
-                        News
-          </Typography>
                 </Toolbar>
             </AppBar>
             <Drawer open={state.left} onClose={toggleDrawer('left', false)}>

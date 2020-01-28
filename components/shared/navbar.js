@@ -14,6 +14,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import HelpIcon from '@material-ui/icons/Help';
+import HomeIcon from '@material-ui/icons/Home';
+import InfoIcon from '@material-ui/icons/Info';
 import MuiLink from '@material-ui/core/Link';
 import ProTip from '../../src/ProTip';
 import Link from '../../src/Link';
@@ -55,51 +58,25 @@ export default function PageNavbar() {
             onKeyDown={toggleDrawer(side, false)}
         >
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+                <ListItem button key={`Home`}>
+                    <ListItemIcon><HomeIcon /></ListItemIcon>
+                    <ListItemText primary={`GO HOME`} />
+                </ListItem>
+                <ListItem button key={`About`}>
+                    <ListItemIcon><InfoIcon /></ListItemIcon>
+                    <ListItemText primary={`GO ABOUT`} />
+                </ListItem>
             </List>
             <Divider />
             <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+                <ListItem button key={`Help`}>
+                    <ListItemIcon><HelpIcon /></ListItemIcon>
+                    <ListItemText primary={`GET HELP`} />
+                </ListItem>
             </List>
         </div>
     );
 
-    const fullList = side => (
-        <div
-            className={classes.fullList}
-            role="presentation"
-            onClick={toggleDrawer(side, false)}
-            onKeyDown={toggleDrawer(side, false)}
-        >
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-        </div>
-    );
 
     return (
         <div className={classes.root}>

@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function Index() {
+export default function  PageNavbar() {
     const classes = useStyles();
     const [state, setState] = React.useState({
         top: false,

@@ -108,7 +108,6 @@ export default function Index() {
           <Typography variant="h6" className={classes.title}>
             News
           </Typography>
-          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
       <Drawer open={state.left} onClose={toggleDrawer('left', false)}>

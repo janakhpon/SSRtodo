@@ -1,38 +1,29 @@
-import React from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import MuiLink from '@material-ui/core/Link';
-import Button from '@material-ui/core/Button';
-import ProTip from '../src/ProTip';
-import Link from '../src/Link';
+import React from 'react'
+import Layout from '../components/layout'
+import Head from 'next/head'
 
-function Copyright() {
+const about = () => {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <MuiLink color="inherit" href="https://material-ui.com/">
-        Your Website
-      </MuiLink>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
+    <Layout>
+      <Head>
+        <title>About</title>
+        <meta
+          name="viewport"
+          content="initial-scale=1.0, width=device-width"
+          key="viewport"
+        />
+        <link rel="shortcut icon" href="https://avatars1.githubusercontent.com/u/46496244?s=400&u=9611ffb5e3cb7039ee5c6bdee55ee12668d53a7c&v=4" />
+      </Head>
+      <Head>
+        <meta
+          name="viewport"
+          content="initial-scale=1.2, width=device-width"
+          key="viewport"
+        />
+      </Head>
+      <h1>About</h1>
+    </Layout>
+  )
 }
 
-export default function About() {
-  return (
-    <Container maxWidth="sm">
-      <Box my={4}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Next.js example
-        </Typography>
-        <Button variant="contained" color="primary" component={Link} naked href="/">
-          Go to the main page
-        </Button>
-        <ProTip />
-        <Copyright />
-      </Box>
-    </Container>
-  );
-}
+export default about

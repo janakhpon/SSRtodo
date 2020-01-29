@@ -11,10 +11,9 @@ import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { useTheme } from '@material-ui/core/styles';
-import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Item from '../components/Item'
+import { useTheme, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   itemcontainer: {

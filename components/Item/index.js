@@ -2,6 +2,7 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import Dialog from '@material-ui/core/Dialog'
+import Paper from '@material-ui/core/Paper'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
@@ -11,13 +12,17 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { useTheme } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
-    itemcontainer: {
-        marginTop: theme.spacing(4),
-    },
     Dialog: {
         background: '#1d3557',
         color: 'white',
     },
+    Paper: {
+        background: '#1d3557',
+        color: 'white',
+        height: '100%',
+        width: '100%',
+        padding: '0.5rem',
+    }
 }));
 
 const INITIAL_STATE = {
@@ -57,21 +62,23 @@ const Item = () => {
     return (
         <>
             <Grid item xs={12} className={classes.itemcontainer}>
-                <Grid container direction="row" justify="center" alignitems="center">
-                    <Grid item xs={12} md={8}>
-                        <p>Hello this is my first task in this application. | 2 days ago</p>
+                <Paper elevation={3} className={classes.Paper}>
+                    <Grid container direction="row" justify="center" alignitems="center">
+                        <Grid item xs={12} md={8}>
+                            <p>Hello this is my first task in this application. | 2 days ago</p>
+                        </Grid>
+                        <Grid item xs={4} md={2}>
+                            <Button variant="contained" color="primary" onClick={handleClickOpen}>
+                                UPDATE
+                            </Button>
+                        </Grid>
+                        <Grid item xs={4} md={2}>
+                            <Button variant="contained" color="primary">
+                                REMOVE
+                            </Button>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={4} md={2}>
-                        <Button variant="contained" color="primary" onClick={handleClickOpen}>
-                            UPDATE
-                        </Button>
-                    </Grid>
-                    <Grid item xs={4} md={2}>
-                        <Button variant="contained" color="primary">
-                            REMOVE
-                        </Button>
-                    </Grid>
-                </Grid>
+                </Paper>
             </Grid>
             <Dialog
                 fullScreen={fullScreen}
@@ -112,10 +119,10 @@ const Item = () => {
                 <DialogActions>
                     <Button autoFocus color="primary">
                         SAVE
-          </Button>
+                    </Button>
                     <Button onClick={handleClose} color="primary" autoFocus>
                         CANCEL
-          </Button>
+                    </Button>
                 </DialogActions>
             </Dialog>
         </>

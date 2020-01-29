@@ -4,11 +4,30 @@ html,body, * {
     font-family: 'Roboto', 'Helvetica';
 }
 
-.list {
-    background-color: #000;
+.div_list {
+    display: block;
+    background-color: #1d3557;
     color: white;
-    width: 30vw;
+    width: 100%;
+    padding: 0.2rem;
 }
+
+.div_list__container{
+    width: 15vw;  
+}
+
+
+@media (max-width: 420px) {
+    /* Selectors and styles affecting screens UP TO 420px (Mobile) */
+
+    .div_list__container{
+        width: 45vw;  
+    }
+    
+}
+
+
+
 
 .icon {
     color: white;

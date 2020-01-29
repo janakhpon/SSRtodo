@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -25,7 +25,24 @@ const useStyles = makeStyles(theme => ({
     title: {
         flexGrow: 1,
     },
+    sidebar: {
+        background: 'transparent',
+        boxShadow: 'none',
+    },
 }));
+
+const styledList = withStyles({
+    root: {
+      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      borderRadius: 3,
+      border: 0,
+      color: 'white',
+      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    },
+    label: {
+      textTransform: 'capitalize',
+    },
+  })(List);
 
 export default function PageNavbar() {
     const classes = useStyles();
@@ -50,14 +67,19 @@ export default function PageNavbar() {
             role="presentation"
             onClick={toggleDrawer(side, false)}
             onKeyDown={toggleDrawer(side, false)}
+            classes={{
+                root: classes.sidebar, // class name, e.g. `classes-nesting-root-x`
+                label: classes.sidebar, // class name, e.g. `classes-nesting-label-x`
+            }}
+            style={{ background: 'transparent', boxShadow: 'none' }}
         >
-            <List>
+            <List className="list">
                 <ListItem button key={`Home`} component={Link} naked href="/">
-                    <ListItemIcon><HomeIcon /></ListItemIcon>
+                    <ListItemIcon><HomeIcon className="icon" /></ListItemIcon>
                     <ListItemText primary={`GO HOME`} />
                 </ListItem>
                 <ListItem button key={`About`} component={Link} naked href="/about">
-                    <ListItemIcon><InfoIcon /></ListItemIcon>
+                    <ListItemIcon><InfoIcon className="icon"/></ListItemIcon>
                     <ListItemText primary={`GO ABOUT`} />
                 </ListItem>
             </List>
@@ -74,7 +96,7 @@ export default function PageNavbar() {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none' }}>
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer('left', true)}>
                         <MenuIcon />

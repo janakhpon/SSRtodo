@@ -1,6 +1,8 @@
 @import './shared/fonts';
 
-html,body, * {
+html,
+body,
+* {
     font-family: 'Roboto', 'Helvetica';
 }
 
@@ -12,22 +14,25 @@ html,body, * {
     padding: 0.2rem;
 }
 
-
-.div_list__container{
-    width: 15vw;  
+.div_list__container {
+    width: 15vw;
 }
-
 
 @media (max-width: 420px) {
     /* Selectors and styles affecting screens UP TO 420px (Mobile) */
 
-    .div_list__container{
-        width: 45vw;  
+    .div_list__container {
+        width: 45vw;
     }
-    
+
 }
 
-
 .icon {
+    color: white;
+}
+
+p,
+h2,
+h1 {
     color: white;
 }

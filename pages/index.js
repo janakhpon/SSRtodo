@@ -13,6 +13,7 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
 import Item from '../components/Item'
 
 const useStyles = makeStyles(theme => ({
@@ -22,6 +23,10 @@ const useStyles = makeStyles(theme => ({
   Dialog: {
     background: '#1d3557',
     color: 'white',
+  },
+  vspacing: {
+    height: '0.5rem',
+    marginBottom: '2rem',
   },
 }));
 
@@ -67,21 +72,25 @@ const index = () => {
         />
         <link rel="shortcut icon" href="https://avatars1.githubusercontent.com/u/46496244?s=400&u=9611ffb5e3cb7039ee5c6bdee55ee12668d53a7c&v=4" />
       </Head>
-      <Grid container direction="row" justify="center" alignitems="center">
-        <Grid item xs={4}>
-          <Fab color="primary" aria-label="add">
-            <AddIcon onClick={handleClickOpen} />
-          </Fab>
-        </Grid>
 
-        <Grid item xs={8}>
-         <p> 22/9/1998 | Sep 22 1998 | Tuesday </p>
+      <Paper elevation={0} className={classes.Dialog}>
+        <Grid container direction="row" justify="center" alignitems="center">
+          <Grid item xs={4}>
+            <Fab color="primary" aria-label="add">
+              <AddIcon onClick={handleClickOpen} />
+            </Fab>
+          </Grid>
+          <Grid item xs={8}>
+              <p> 22/9/1998 | Sep 22 1998 | Tuesday </p>
+          </Grid>
+        </Grid>
+      </Paper>
+      <Grid container direction="row" justify="center" alignitems="center" className={classes.vspacing}>
+        <Grid item xs={12}>
+          
         </Grid>
       </Grid>
-      <Grid container direction="row" justify="center" alignitems="center">
-        <Item />
-      </Grid>
-
+      <Item />
       <Dialog
         fullScreen={fullScreen}
         open={open}

@@ -17,29 +17,29 @@ app.use(bodyParser.json());
 const db = require('./config/keys').mongoURI;
 
 //connect to MongoDB
-mongoose.connect(db, { useNewUrlParser: true }).then(() => {
+mongoose.connect(db, {useNewUrlParser : true}).then(() => {
     console.log(`MongoDB connected on ${db}`);
 }).catch(err => {
     console.log(`MongoDB connection error : ${err} on : ${db}`);
 })
 
 //Allow XHttp request 
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
     //res.header('Access-Control-Allow-Origin', 'http://localhost:8080/');
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    res.header("Access-Control-Allow-Methods", "GET,POST,DELETE,PUT");
-    next();
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "GET,POST,DELETE,PUT");
+  next();
 });
 
 
 //path to html file
 app.use(express.static("public"));
 app.get('/', function (req, res) {
-    res.sendFile('index.html');
+  res.sendFile('index.html');
 });
 
 

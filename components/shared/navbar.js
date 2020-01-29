@@ -29,20 +29,28 @@ const useStyles = makeStyles(theme => ({
         background: 'transparent',
         boxShadow: 'none',
     },
+    Drawer: {
+        background: '#1d3557',
+        color: 'white',
+        borderRadius: '0.3rem',
+        margin: '0.2rem',
+        zIndex: 1000,
+        transition: '2s',
+    }
 }));
 
 const styledList = withStyles({
     root: {
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-      borderRadius: 3,
-      border: 0,
-      color: 'white',
-      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        borderRadius: 3,
+        border: 0,
+        color: 'white',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     },
     label: {
-      textTransform: 'capitalize',
+        textTransform: 'capitalize',
     },
-  })(List);
+})(List);
 
 export default function PageNavbar() {
     const classes = useStyles();
@@ -74,14 +82,14 @@ export default function PageNavbar() {
                     <ListItemText primary={`HOME`} />
                 </ListItem>
                 <ListItem button key={`About`} component={Link} naked href="/about">
-                    <ListItemIcon><InfoIcon className="icon"/></ListItemIcon>
+                    <ListItemIcon><InfoIcon className="icon" /></ListItemIcon>
                     <ListItemText primary={`ABOUT`} />
                 </ListItem>
             </List>
             <Divider />
-            <List>
+            <List className="div_list__container">
                 <ListItem button key={`Help`} component={Link} naked href="/help">
-                    <ListItemIcon><HelpIcon /></ListItemIcon>
+                    <ListItemIcon><HelpIcon className="icon" /></ListItemIcon>
                     <ListItemText primary={`HELP`} />
                 </ListItem>
             </List>
@@ -98,7 +106,11 @@ export default function PageNavbar() {
                     </IconButton>
                 </Toolbar>
             </AppBar>
-            <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
+            <Drawer open={state.left} onClose={toggleDrawer('left', false)} PaperProps={{
+                classes: {
+                    root: classes.Drawer
+                }
+            }}>
                 {sideList('left')}
             </Drawer>
         </div>

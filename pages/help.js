@@ -14,13 +14,6 @@ const help = () => {
                 />
                 <link rel="shortcut icon" href="https://avatars1.githubusercontent.com/u/46496244?s=400&u=9611ffb5e3cb7039ee5c6bdee55ee12668d53a7c&v=4" />
             </Head>
-            <Head>
-                <meta
-                    name="viewport"
-                    content="initial-scale=1.2, width=device-width"
-                    key="viewport"
-                />
-            </Head>
             <h1>help</h1>
         </Layout>
     )

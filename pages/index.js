@@ -65,20 +65,18 @@ const index = () => {
         <link rel="shortcut icon" href="https://avatars1.githubusercontent.com/u/46496244?s=400&u=9611ffb5e3cb7039ee5c6bdee55ee12668d53a7c&v=4" />
       </Head>
       <Grid container direction="row" justify="center" alignitems="center">
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <Fab color="primary" aria-label="add">
-            <AddIcon onClick={handleClickOpen}/>
+            <AddIcon onClick={handleClickOpen} />
           </Fab>
         </Grid>
-        <Grid item xs={1}>
 
-        </Grid>
         <Grid item xs={8}>
-          <TextField id="outlined-basic" label="Outlined" variant="outlined" fullWidth />
+         <p> 22/9/1998 | Sep 22 1998 | Tuesday </p>
         </Grid>
       </Grid>
       <Grid container direction="row" justify="center" alignitems="center">
-          <Item />
+        <Item />
       </Grid>
 
       <Dialog

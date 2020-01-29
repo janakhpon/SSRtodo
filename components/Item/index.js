@@ -69,9 +69,9 @@ const Item = () => {
                             </Button>
                         </Grid>
                         <Grid item xs={4} md={2}>
-                            <Button variant="contained" color="primary">
+                            <Button variant="contained" color="secondary">
                                 REMOVE
-                            </Button>
+      </Button>
                         </Grid>
                     </Grid>
                 </Paper>
@@ -87,7 +87,7 @@ const Item = () => {
                     }
                 }}
             >
-                <DialogTitle id="responsive-dialog-text">{" Don't Forget to choose your privacy options!"}</DialogTitle>
+                <DialogTitle id="responsive-dialog-text">{" Don't leave a thing when it comes to implementation! List them all .. "}</DialogTitle>
                 <DialogContent>
                     <CustomTextField
                         onChange={handleChange}
@@ -102,11 +102,11 @@ const Item = () => {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button autoFocus color="primary">
+                    <Button autoFocus variant="contained" color="primary">
                         SAVE
                     </Button>
-                    <Button onClick={handleClose} color="primary" autoFocus>
-                        CANCEL
+                    <Button onClick={handleClose} variant="contained" color="secondary">
+                        NOPE
                     </Button>
                 </DialogActions>
             </Dialog>

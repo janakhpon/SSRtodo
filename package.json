@@ -20,7 +20,8 @@
     "react": "latest",
     "react-dom": "latest",
     "react-typed": "^1.2.0",
-    "styled-components": "^5.0.0"
+    "styled-components": "^5.0.0",
+    "validator": "^12.2.0"
   },
   "scripts": {
     "dev": "next",

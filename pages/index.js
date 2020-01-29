@@ -7,15 +7,14 @@ import Button from '@material-ui/core/Button'
 import Head from 'next/head'
 import Grid from '@material-ui/core/Grid'
 import CustomTextField from '../components/CustomTextField'
-import CustonCheckBox from '../components/CustomCheckBox'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles'
+import Item from '../components/Item'
 
 const useStyles = makeStyles(theme => ({
   itemcontainer: {
@@ -79,27 +78,7 @@ const index = () => {
         </Grid>
       </Grid>
       <Grid container direction="row" justify="center" alignitems="center">
-        <Grid item xs={1}>
-        </Grid>
-        <Grid item xs={10} className={classes.itemcontainer}>
-          <Grid container direction="row" justify="center" alignitems="center">
-            <Grid item xs={6}>
-              <p>Hello this is my first task in this application. </p>
-            </Grid>
-            <Grid item xs={3}>
-              <Button variant="contained" color="primary">
-                Primary
-            </Button>
-            </Grid>
-            <Grid item xs={3}>
-              <Button variant="contained" color="primary">
-                Primary
-            </Button>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={1}>
-        </Grid>
+          <Item />
       </Grid>
 
       <Dialog

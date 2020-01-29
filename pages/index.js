@@ -96,7 +96,7 @@ const index = () => {
           }
         }}
       >
-        <DialogTitle id="responsive-dialog-text">{" Don't Forget to choose your privacy options!"}</DialogTitle>
+        <DialogTitle id="responsive-dialog-text">{" Don't leave a thing when it comes to implementation! List them all .. "}</DialogTitle>
         <DialogContent>
           <CustomTextField
             onChange={handleChange}
@@ -111,11 +111,11 @@ const index = () => {
           />
         </DialogContent>
         <DialogActions>
-          <Button autoFocus color="primary">
+          <Button autoFocus variant="contained" color="primary">
             SAVE
           </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
-            CANCEL
+          <Button onClick={handleClose} variant="contained" color="secondary">
+            NOPE
           </Button>
         </DialogActions>
       </Dialog>

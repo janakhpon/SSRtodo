@@ -35,11 +35,10 @@ const INITIAL_STATE = {
 
 const index = () => {
   const [values, setValues] = React.useState(INITIAL_STATE)
-  const [checked, setChecked] = React.useState(false);
   const [open, setOpen] = React.useState(false)
   const classes = useStyles()
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
   const handleChange = (e) => {
     e.persist();
@@ -48,19 +47,18 @@ const index = () => {
     }))
   }
 
-
   const handleClickOpen = () => {
     setOpen(true);
-  };
+  }
 
   const handleClose = () => {
     setOpen(false);
-  };
+  }
 
   return (
     <Layout>
       <Head>
-        <text>HOME</text>
+        <title>HOME</title>
         <meta
           name="viewport"
           content="initial-scale=1.0, width=device-width"

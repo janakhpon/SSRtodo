@@ -26,19 +26,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const INITIAL_STATE = {
-    title: "",
-    body: "",
-    visibility: false,
-    author: ""
+    text: ""
 }
 
 const Item = () => {
     const [values, setValues] = React.useState(INITIAL_STATE)
-    const [checked, setChecked] = React.useState(false);
     const [open, setOpen] = React.useState(false)
     const classes = useStyles()
     const theme = useTheme();
-    const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
 
 
@@ -84,34 +80,23 @@ const Item = () => {
                 fullScreen={fullScreen}
                 open={open}
                 onClose={handleClose}
-                aria-labelledby="responsive-dialog-title"
+                aria-labelledby="responsive-dialog-text"
                 PaperProps={{
                     classes: {
                         root: classes.Dialog
                     }
                 }}
             >
-                <DialogTitle id="responsive-dialog-title">{" Don't Forget to choose your privacy options!"}</DialogTitle>
+                <DialogTitle id="responsive-dialog-text">{" Don't Forget to choose your privacy options!"}</DialogTitle>
                 <DialogContent>
                     <CustomTextField
                         onChange={handleChange}
-                        value={values.title}
+                        value={values.text}
                         autoFocus
                         margin="dense"
                         id="name"
-                        name="title"
-                        label="Task Title"
-                        type="text"
-                        fullWidth
-                    />
-                    <CustomTextField
-                        autoFocus
-                        onChange={handleChange}
-                        value={values.body}
-                        margin="dense"
-                        id="body"
-                        name="body"
-                        label="Task Description"
+                        name="text"
+                        label="Your todo text ... "
                         type="text"
                         fullWidth
                     />

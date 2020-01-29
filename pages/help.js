@@ -32,7 +32,7 @@ const help = () => {
             <Paper elevation={1} className={classes.Paper}>
                 <Grid container direction="row" justify="center" alignitems="center">
                     <Grid item xs={12} style={{ textAlign: 'center', marginTop: '2rem' }}>
-                        <h2 className="h2-help">HELP</h2>
+                        <h2 className="h2-help">HELP &nbsp;&nbsp; || &nbsp;&nbsp; Page</h2>
                     </Grid>
                     <Grid item xs={12}>
                         <Typography paragraph style={{ marginTop: '1rem' }}>

@@ -30,10 +30,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const INITIAL_STATE = {
-  title: "",
-  body: "",
-  visibility: false,
-  author: ""
+  text: ""
 }
 
 const index = () => {
@@ -63,7 +60,7 @@ const index = () => {
   return (
     <Layout>
       <Head>
-        <title>HOME</title>
+        <text>HOME</text>
         <meta
           name="viewport"
           content="initial-scale=1.0, width=device-width"
@@ -80,13 +77,13 @@ const index = () => {
             </Fab>
           </Grid>
           <Grid item xs={8}>
-              <p> 22/9/1998 | Sep 22 1998 | Tuesday </p>
+            <p> 22/9/1998 | Sep 22 1998 | Tuesday </p>
           </Grid>
         </Grid>
       </Paper>
       <Grid container direction="row" justify="center" alignitems="center" className={classes.vspacing}>
         <Grid item xs={12}>
-          
+
         </Grid>
       </Grid>
       <Item />
@@ -94,34 +91,23 @@ const index = () => {
         fullScreen={fullScreen}
         open={open}
         onClose={handleClose}
-        aria-labelledby="responsive-dialog-title"
+        aria-labelledby="responsive-dialog-text"
         PaperProps={{
           classes: {
             root: classes.Dialog
           }
         }}
       >
-        <DialogTitle id="responsive-dialog-title">{" Don't Forget to choose your privacy options!"}</DialogTitle>
+        <DialogTitle id="responsive-dialog-text">{" Don't Forget to choose your privacy options!"}</DialogTitle>
         <DialogContent>
           <CustomTextField
             onChange={handleChange}
-            value={values.title}
+            value={values.text}
             autoFocus
             margin="dense"
             id="name"
-            name="title"
-            label="Task Title"
-            type="text"
-            fullWidth
-          />
-          <CustomTextField
-            autoFocus
-            onChange={handleChange}
-            value={values.body}
-            margin="dense"
-            id="body"
-            name="body"
-            label="Task Description"
+            name="text"
+            label="Your todo text ..."
             type="text"
             fullWidth
           />

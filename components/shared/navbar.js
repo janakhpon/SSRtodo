@@ -63,31 +63,26 @@ export default function PageNavbar() {
 
     const sideList = side => (
         <div
-            className={classes.list}
+            className="div_list"
             role="presentation"
             onClick={toggleDrawer(side, false)}
             onKeyDown={toggleDrawer(side, false)}
-            classes={{
-                root: classes.sidebar, // class name, e.g. `classes-nesting-root-x`
-                label: classes.sidebar, // class name, e.g. `classes-nesting-label-x`
-            }}
-            style={{ background: 'transparent', boxShadow: 'none' }}
         >
-            <List className="list">
+            <List className="div_list__container">
                 <ListItem button key={`Home`} component={Link} naked href="/">
                     <ListItemIcon><HomeIcon className="icon" /></ListItemIcon>
-                    <ListItemText primary={`GO HOME`} />
+                    <ListItemText primary={`HOME`} />
                 </ListItem>
                 <ListItem button key={`About`} component={Link} naked href="/about">
                     <ListItemIcon><InfoIcon className="icon"/></ListItemIcon>
-                    <ListItemText primary={`GO ABOUT`} />
+                    <ListItemText primary={`ABOUT`} />
                 </ListItem>
             </List>
             <Divider />
             <List>
                 <ListItem button key={`Help`} component={Link} naked href="/help">
                     <ListItemIcon><HelpIcon /></ListItemIcon>
-                    <ListItemText primary={`GET HELP`} />
+                    <ListItemText primary={`HELP`} />
                 </ListItem>
             </List>
         </div>

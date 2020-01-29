@@ -13,29 +13,22 @@ const Item = () => {
     const classes = useStyles()
     return (
         <>
-            <Grid item xs={1}>
-            </Grid>
-            <Grid item xs={10} className={classes.itemcontainer}>
+            <Grid item xs={12} className={classes.itemcontainer}>
                 <Grid container direction="row" justify="center" alignitems="center">
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={8}>
                         <p>Hello this is my first task in this application. | 2 days ago</p>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={4} md={2}>
                         <Button variant="contained" color="primary">
-                            Primary
+                            UPDATe
                         </Button>
-                        <Grid item xs={2}>
-
-                        </Grid>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={4} md={2}>
                         <Button variant="contained" color="primary">
-                            Primary
-            </Button>
+                            REMOVE
+                        </Button>
                     </Grid>
                 </Grid>
-            </Grid>
-            <Grid item xs={1}>
             </Grid>
         </>
     )

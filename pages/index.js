@@ -2,7 +2,6 @@ import React from 'react'
 import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/Add'
 import Layout from '../components/layout'
-import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Head from 'next/head'
 import Grid from '@material-ui/core/Grid'
@@ -19,6 +18,10 @@ import Item from '../components/Item'
 const useStyles = makeStyles(theme => ({
   itemcontainer: {
     marginTop: theme.spacing(4),
+  },
+  Dialog: {
+    background: '#1d3557',
+    color: 'white',
   },
 }));
 
@@ -86,7 +89,7 @@ const index = () => {
         aria-labelledby="responsive-dialog-title"
         PaperProps={{
           classes: {
-            root: classes.expand
+            root: classes.Dialog
           }
         }}
       >

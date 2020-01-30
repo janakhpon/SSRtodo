@@ -14,6 +14,8 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Paper from '@material-ui/core/Paper'
 import axios from 'axios'
 import Item from '../components/Item'
+import moment from 'moment'
+import URL from '../config/urls'
 import { useTheme, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -48,12 +50,14 @@ const index = () => {
   const [noti, setNoti] = React.useState(NOTI_VALUES)
   const [open, setOpen] = useState(false)
 
+  let time = moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
+
   useEffect(() => {
     let isSubscribed = true
 
     const getText = async () => {
       try {
-        let res = await axios.get('http://localhost:3000/api/task')
+        let res = await axios.get(`${URL.url}`)
         console.log(res)
         if (isSubscribed) {
           setResdata(res)
@@ -88,22 +92,22 @@ const index = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-        let url = `http://localhost:3000/api/task`
-        let data = {
-            text: values.text
-        }
-        let res = await axios({
-            method: 'post',
-            url: url,
-            data: data,
-            config: { headers: { 'Content-Type': 'application/json' } }
-        })
-        console.log(res)
-        
-      } catch (err) {
-        setNoti({ err: "session expired! Login again" })
+      let url = `${URL.url}`
+      let data = {
+        text: values.text
       }
-}
+      let res = await axios({
+        method: 'post',
+        url: url,
+        data: data,
+        config: { headers: { 'Content-Type': 'application/json' } }
+      })
+      console.log(res)
+
+    } catch (err) {
+      setNoti({ err: "session expired! Login again" })
+    }
+  }
 
 
   const handleClickOpen = () => {
@@ -134,7 +138,7 @@ const index = () => {
             </Fab>
           </Grid>
           <Grid item xs={8}>
-            <p> 22/9/1998 | Sep 22 1998 | Tuesday </p>
+            <p> {time} </p>
           </Grid>
         </Grid>
       </Paper>
@@ -146,7 +150,7 @@ const index = () => {
       {
         resdata && resdata.data ? (
           resdata.data.map((task, key) => {
-            return <Item task={task} key={key}/>
+            return <Item task={task} key={key} />
           })
         ) :
           ('')

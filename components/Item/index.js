@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import CustomTextField from '../CustomTextField'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import axios from 'axios'
+import moment from 'moment'
 import URL from '../../config/urls'
 import { useTheme } from '@material-ui/core/styles'
 
@@ -80,7 +81,7 @@ const Item = ({ task }) => {
     const handleRemove = async (e) => {
         e.preventDefault()
         try {
-            let url = `http://localhost:3000/api/task/ID/${values._id}`
+            let url = `${URL.urlid}${values._id}`
             let res = await axios({
                 method: 'delete',
                 url: url,
@@ -108,7 +109,7 @@ const Item = ({ task }) => {
                 <Paper elevation={3} className={classes.Paper}>
                     <Grid container direction="row" justify="center" alignitems="center">
                         <Grid item xs={12} md={8}>
-                            <p> {values.text} | 2 days ago</p>
+                            <p> {values.text} | {moment(values.date).fromNow()}</p>
                         </Grid>
                         <Grid item xs={4} md={2}>
                             <Button variant="contained" color="primary" onClick={handleClickOpen}>

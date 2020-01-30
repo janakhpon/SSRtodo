@@ -28,6 +28,9 @@ const useStyles = makeStyles(theme => ({
     height: '0.5rem',
     marginBottom: '2rem',
   },
+  item: {
+    margin: '0.2rem',
+  }
 }));
 
 const NOTI_VALUES = {
@@ -143,7 +146,7 @@ const index = () => {
       {
         resdata && resdata.data ? (
           resdata.data.map((task, key) => {
-            return <Item task={task} key={key} />
+            return <Item task={task} key={key}/>
           })
         ) :
           ('')

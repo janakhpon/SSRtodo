@@ -82,6 +82,27 @@ const index = () => {
     }))
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+        let url = `http://localhost:3000/api/task`
+        let data = {
+            text: values.text
+        }
+        let res = await axios({
+            method: 'post',
+            url: url,
+            data: data,
+            config: { headers: { 'Content-Type': 'application/json' } }
+        })
+        console.log(res)
+        
+      } catch (err) {
+        setNoti({ err: "session expired! Login again" })
+      }
+}
+
+
   const handleClickOpen = () => {
     setOpen(true);
   }
@@ -153,7 +174,7 @@ const index = () => {
           />
         </DialogContent>
         <DialogActions>
-          <Button autoFocus variant="contained" color="primary">
+          <Button autoFocus variant="contained" color="primary" onClick={handleSubmit}>
             SAVE
           </Button>
           <Button onClick={handleClose} variant="contained" color="secondary">

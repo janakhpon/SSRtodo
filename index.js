@@ -18,7 +18,7 @@ app.prepare().then(() => {
     const db = require('./config/keys').mongoURI;
 
     //connect to MongoDB
-    mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+    mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(() => {
         console.log(`MongoDB connected on ${db}`);
     }).catch(err => {
         console.log(`MongoDB connection error : ${err} on : ${db}`);

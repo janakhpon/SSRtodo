@@ -36,3 +36,9 @@ h2,
 h1 {
     color: white;
 }
+
+.hidden {
+    color: transparent;
+    background: transparent;
+    opacity: 0;
+}

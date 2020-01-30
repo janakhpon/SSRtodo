@@ -75,6 +75,23 @@ const Item = ({ task }) => {
           }
     }
 
+
+    const handleRemove = async (e) => {
+        e.preventDefault()
+        try {
+            let url = `http://localhost:3000/api/task/ID/${values._id}`
+            let res = await axios({
+                method: 'delete',
+                url: url,
+                config: { headers: { 'Content-Type': 'application/json' } }
+            })
+            console.log(res)
+            
+          } catch (err) {
+            setNoti({ err: "session expired! Login again" })
+          }
+    }
+
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -98,12 +115,13 @@ const Item = ({ task }) => {
                             </Button>
                         </Grid>
                         <Grid item xs={4} md={2}>
-                            <Button variant="contained" color="secondary">
+                            <Button variant="contained" color="secondary" onClick={handleRemove}>
                                 REMOVE
                             </Button>
                         </Grid>
                     </Grid>
                 </Paper>
+                <hr className="hidden" />
             </Grid>
             <Dialog
                 fullScreen={fullScreen}

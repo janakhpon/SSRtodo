@@ -92,9 +92,6 @@ const index = () => {
 
   return (
     <Layout>
-      {
-        console.log(resdata)
-      }
       <Head>
         <title>HOME</title>
         <meta
@@ -122,7 +119,14 @@ const index = () => {
 
         </Grid>
       </Grid>
-      <Item />
+      {
+        resdata && resdata.data ? (
+          resdata.data.map((task, key) => {
+            return <Item task={task} key={key} />
+          })
+        ) :
+          ('')
+      }
       <Dialog
         fullScreen={fullScreen}
         open={open}

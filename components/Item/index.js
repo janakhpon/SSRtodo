@@ -25,11 +25,15 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-const INITIAL_STATE = {
-    text: ""
-}
 
-const Item = () => {
+
+const Item = ({ task }) => {
+
+    const INITIAL_STATE = {
+        _id: task ? (task._id) : (''),
+        text: task ? (task.text) : (''),
+        date: task ? (task.date) : (''),
+    }
     const [values, setValues] = React.useState(INITIAL_STATE)
     const [open, setOpen] = React.useState(false)
     const classes = useStyles()
@@ -57,11 +61,11 @@ const Item = () => {
 
     return (
         <>
-            <Grid item xs={12} className={classes.itemcontainer}>
+            <Grid item xs={12} className={classes.itemcontainer} id={values._id}>
                 <Paper elevation={3} className={classes.Paper}>
                     <Grid container direction="row" justify="center" alignitems="center">
                         <Grid item xs={12} md={8}>
-                            <p>Hello this is my first task in this application. | 2 days ago</p>
+                            <p> {values.text} | 2 days ago</p>
                         </Grid>
                         <Grid item xs={4} md={2}>
                             <Button variant="contained" color="primary" onClick={handleClickOpen}>
@@ -71,7 +75,7 @@ const Item = () => {
                         <Grid item xs={4} md={2}>
                             <Button variant="contained" color="secondary">
                                 REMOVE
-      </Button>
+                            </Button>
                         </Grid>
                     </Grid>
                 </Paper>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/Add'
 import Layout from '../components/layout'
@@ -12,6 +12,7 @@ import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Paper from '@material-ui/core/Paper'
+import axios from 'axios'
 import Item from '../components/Item'
 import { useTheme, makeStyles } from '@material-ui/core/styles';
 
@@ -29,13 +30,47 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const NOTI_VALUES = {
+  msg: '',
+  err: ""
+}
+
 const INITIAL_STATE = {
   text: ""
 }
 
 const index = () => {
-  const [values, setValues] = React.useState(INITIAL_STATE)
-  const [open, setOpen] = React.useState(false)
+  const [values, setValues] = useState(INITIAL_STATE)
+  const [resdata, setResdata] = useState([])
+  const [noti, setNoti] = React.useState(NOTI_VALUES)
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    let isSubscribed = true
+
+    const getText = async () => {
+      try {
+        let res = await axios.get('http://localhost:3000/api/task')
+        console.log(res)
+        if (isSubscribed) {
+          setResdata(res)
+          setNoti({ msg: `Login as` })
+        }
+      } catch (err) {
+        setNoti({ err: "session expired! Login again" })
+      }
+    }
+
+    try {
+      getText()
+    } catch (err) {
+      setNoti({ err: "session expired! Login again" })
+    }
+    return () => isSubscribed = false
+  }, [])
+
+
+
   const classes = useStyles()
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
@@ -57,6 +92,9 @@ const index = () => {
 
   return (
     <Layout>
+      {
+        console.log(resdata)
+      }
       <Head>
         <title>HOME</title>
         <meta

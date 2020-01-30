@@ -10,6 +10,9 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const server = express();
+const URL = require('./config/urls')
+
+console.log(URL.url)
 
 app.prepare().then(() => {
     server.use(bodyParser.urlencoded({ extended: false }));

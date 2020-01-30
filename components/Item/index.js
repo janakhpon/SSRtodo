@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import CustomTextField from '../CustomTextField'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import axios from 'axios'
+import URL from '../../config/urls'
 import { useTheme } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
@@ -29,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 const NOTI_VALUES = {
     msg: '',
     err: ""
-  }
+}
 
 const Item = ({ task }) => {
 
@@ -58,7 +59,7 @@ const Item = ({ task }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            let url = `http://localhost:3000/api/task/ID/${values._id}`
+            let url = `${URL.urlid}${values._id}`
             let data = {
                 text: values.text
             }
@@ -69,10 +70,10 @@ const Item = ({ task }) => {
                 config: { headers: { 'Content-Type': 'application/json' } }
             })
             console.log(res)
-            
-          } catch (err) {
+
+        } catch (err) {
             setNoti({ err: "session expired! Login again" })
-          }
+        }
     }
 
 
@@ -86,10 +87,10 @@ const Item = ({ task }) => {
                 config: { headers: { 'Content-Type': 'application/json' } }
             })
             console.log(res)
-            
-          } catch (err) {
+
+        } catch (err) {
             setNoti({ err: "session expired! Login again" })
-          }
+        }
     }
 
     const handleClickOpen = () => {

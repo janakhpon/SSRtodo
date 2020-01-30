@@ -29,7 +29,6 @@ app.prepare().then(() => {
     // db.on('error', console.error.bind(console, 'connection error:'));
 
     server.use('/api/task', task);
-
     server.get('*', (req, res) => {
         return handle(req, res)
     });

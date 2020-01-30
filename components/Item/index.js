@@ -9,6 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import { makeStyles } from '@material-ui/core/styles'
 import CustomTextField from '../CustomTextField'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+import axios from 'axios'
 import { useTheme } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
@@ -25,7 +26,10 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-
+const NOTI_VALUES = {
+    msg: '',
+    err: ""
+  }
 
 const Item = ({ task }) => {
 
@@ -36,6 +40,7 @@ const Item = ({ task }) => {
     }
     const [values, setValues] = React.useState(INITIAL_STATE)
     const [open, setOpen] = React.useState(false)
+    const [noti, setNoti] = React.useState(NOTI_VALUES)
     const classes = useStyles()
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
@@ -49,6 +54,26 @@ const Item = ({ task }) => {
         }))
     }
 
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            let url = `http://localhost:3000/api/task/ID/${values._id}`
+            let data = {
+                text: values.text
+            }
+            let res = await axios({
+                method: 'put',
+                url: url,
+                data: data,
+                config: { headers: { 'Content-Type': 'application/json' } }
+            })
+            console.log(res)
+            
+          } catch (err) {
+            setNoti({ err: "session expired! Login again" })
+          }
+    }
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -106,7 +131,7 @@ const Item = ({ task }) => {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button autoFocus variant="contained" color="primary">
+                    <Button autoFocus variant="contained" color="primary" onClick={handleSubmit}>
                         SAVE
                     </Button>
                     <Button onClick={handleClose} variant="contained" color="secondary">

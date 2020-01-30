@@ -2,7 +2,7 @@
   Just Todo app using SSR with Next.js to implement MERN stack and can be used as  `Next.js Boilerplate / Starter Kit` . Please Check the `RELEASE_STATUS` before you clone. Here is a deployed link [DeploymentLink](https://todogql-react.now.sh)
 
 ## RELEASE_STATUS:IN PROGRESS
-## RELEASE_CODE: GDEV005
+## RELEASE_CODE: GDEV041
  Sorry this project is not completely done yet but most features are available to try out. If you are considering about cloning this project please wait till it's completed.
 
 ## Description

@@ -58,7 +58,6 @@ const index = () => {
     const getText = async () => {
       try {
         let res = await axios.get(`${URL.url}`)
-        console.log(res)
         if (isSubscribed) {
           setResdata(res)
           setNoti({ msg: `Login as` })
@@ -74,7 +73,7 @@ const index = () => {
       setNoti({ err: "session expired! Login again" })
     }
     return () => isSubscribed = false
-  }, [])
+  }, [resdata])
 
 
 
